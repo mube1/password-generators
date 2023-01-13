@@ -1,5 +1,5 @@
 # Data driven Password guessing tools
-These are a collection of password guessing tools written in python. The tools will get smarter as I update them. ...
+These are a collection of password guessing tools written in python. The tools will get smarter as I update them. <br/>
 They are mostly data driven, i.e, they will be based on some data to make the best guess. <br/>
 There are a number of datasets out there but here, I used the most common one 'rockyou.txt' which can be downloaded from [here](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt)
 
@@ -12,7 +12,8 @@ To run the first file:
 -Run the command 'python3 password_generator_v1.py m n' ( n passwords of length m  )
 
 ### 4-gram model
-This is a better version that is an extention of the first one. It is based on 4-gram. Some codes are adapted from ...  
+This is a better version that is an extention of the first one. It is based on 4-gram. <br/>
+Some parts of the codes here are adapted from ...  
 
 ### To train from scratch
 -Download the Rockyou.txt dataset [here](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt)   
