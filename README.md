@@ -14,18 +14,17 @@ To run the first file:<br/>
 ### 4-gram model
 This is a better version that is an extention of the first one. It is based on 4-gram. <br/>
 
--Download the Rockyou.txt dataset [here](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt)   
--Adjust the path of Rockyou.txt file in the train file Train_n_gram_password.ipynb
+-Download a trained 4-gram dic dump (pkl file) [here](https://drive.google.com/file/d/1ZJdEkgRlrGDNgBuU8bMjJsZfS1iFeTKG/view?usp=share_link) <br/>
+-pip3 install requirments.txt # (it just contains numpy in case you dont have it)  <br/>
+-python3 password_generator_v1.py m n # n amount of passwords with length m  
 
+### Train your own n-gram model <br/>
 
--Download [this](https://drive.google.com/file/d/1ZJdEkgRlrGDNgBuU8bMjJsZfS1iFeTKG/view?usp=share_link) file in the same folder as  password_generator_v2.py file <br/>
--Run 'pip3 install requirments.txt' (it just contains numpy in case you dont have it)  <br/>
--Run the command 'python3 password_generator_v1.py m n' ( n passwords of length m  )  
+##### If you want to train your own model, with you  own database:
 
-### Train yor own n-gram model
-
--Run 'pip3 install requirments.txt'
--
+-train_n_gram.py -o 'your path to output the trained dictionary' -n 'lenght n- gram default is 4' -t 'path to trainset, default is rockyou.txt'
+-It outputs a pkl file that contains probability values from frequency calculations that can be used for inference ngram_inference.py file above<br/>
+-To get help, type in python train_n_gram.py -h
 
 ### To be posted soon
 <br/><br/>
