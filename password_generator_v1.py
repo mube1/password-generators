@@ -6,13 +6,17 @@ import re,sys
 text='123456\n12345\n123456789\npassword\niloveyou\nprincess\n1234567\nrockyou\n12345678\nabc123\nnicole\ndaniel\nbabygirl\nmonkey\nlovely\njessica\n654321\nmichael\nashley\nqwerty\n111111\niloveu\n000000\nmichelle\ntigger\nsunshine\nchocolate\npassword1\nsoccer\nanthony\nfriends\nbutterfly\npurple\nangel\njordan\nliverpool\njustin\nloveme\nfuckyou\n123123\nfootball\nsecret\nandrea\ncarlos\njennifer\njoshua\nbubbles\n1234567890\nsuperman\nhannah\namanda\nloveyou\npretty\nbasketball\nandrew\nangels\ntweety\nflower\nplayboy\nhello\nelizabeth\nhottie\ntinkerbell\ncharlie\nsamantha\nbarbie\nchelsea\nlovers\nteamo\njasmine\nbrandon\n666666\nshadow\nmelissa\neminem\nmatthew\nrobert\ndanielle\nforever\nfamily\njonathan\n987654321\ncomputer\nwhatever\ndragon\nvanessa\ncookie\nnaruto\nsummer\nsweety\nspongebob\njoseph\njunior\nsoftball\ntaylor\nyellow\ndaniela\nlauren\nmickey\nprincesa\nalexandra\nalexis\njesus\nestrella\nmiguel\nwilliam\nthomas\nbeautiful\nmylove\nangela\npoohbear\npatrick\niloveme\nsakura\nadrian\nalexander\ndestiny\nchristian\n121212\nsayang\namerica\ndancer\nmonica\nrichard\n112233\nprincess1\n555555\ndi'
 data=text.split()
 
+# convert password string to list of bi grams
 bigrammer = lambda word: re.findall("(?=(..))", word) 
 
+# set all chars
 all_chars=set(data[0])
 for i in data:
     all_chars=all_chars | set(i)
-    
+
+# collect     dicy here
 all_bigrams={}
+
 for i in data:
     temp=bigrammer(i)
     for j in temp:
@@ -23,6 +27,7 @@ for i in data:
 
 Chars=list(all_chars)
 
+# dict frequency matrix
 main_matrix=np.zeros((len(all_chars),len(all_chars)))
 
 for i in range(len(all_chars)):
@@ -39,6 +44,8 @@ for i in main_matrix:
     i/=i.sum()
 
 def generator(ch):
+    #generate a single charachter
+    
     state_idx=Chars.index(ch)
     try:
         change=np.random.choice(Chars,replace=True,p=main_matrix[state_idx])    
@@ -49,6 +56,7 @@ def generator(ch):
     return main_matrix[state_idx][v],Chars[v]
 
 def password(first='p',length=8):
+    # generate password of given length 
     prob = 1
     i=0
     pwd=first
@@ -60,9 +68,11 @@ def password(first='p',length=8):
     return pwd
 
 def generate_n(number_of_passwords,length=8):
+    # generate n passwords
     return [password(Chars[np.random.randint(len(Chars))],length) for i in range(number_of_passwords)]
 
 def main():
+    # take arguments and call generators
     length=int(sys.argv[1])
     number_passwords=int(sys.argv[2])
 
