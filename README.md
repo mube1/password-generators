@@ -9,7 +9,7 @@ The model is based on bi-gram, collects a sequence of two characters and calcula
 
 To run the first file:<br/>
 -Download the Rockyou.txt dataset [here](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt) <br/>
--Run the command 'python3 password_generator_v1.py m n' ( n passwords of length m  )
+-Run the command 'python3 password_generator_v1.py m n' ( n passwords of length m  )<br/>
 
 ### 4-gram model
 This is a better version that is an extention of the first one. It is based on 4-gram. <br/>
@@ -20,14 +20,16 @@ This is a better version that is an extention of the first one. It is based on 4
 
 ### Train your own n-gram model <br/>
 
-##### If you want to train your own model, with you  own database:
+#### If you want to train your own model, with you  own database:
 
--train_n_gram.py -o 'your path to output the trained dictionary' -n 'lenght n- gram default is 4' -t 'path to trainset, default is rockyou.txt'
--It outputs a pkl file that contains probability values from frequency calculations that can be used for inference ngram_inference.py file above<br/>
--To get help, type in python train_n_gram.py -h
-
-### To be posted soon
+-train_n_gram.py -o 'output path' -n 'lenght n- gram default is 4' -t 'path to trainset, default is rockyou.txt' <br/>
+-It outputs a pkl dump of normalized dict file <br/>
+-For inference ngram_inference.py file above<br/>
+-To get help, type in python train_n_gram.py -h <br/>
+-To run the trained, python3 ngram_inference.py m n m n # n amount of passwords with length m  <br/>
 <br/><br/>
+### To be posted soon
+<br/>
 -Training your own dataset for all methods <br/>
 -PASSGAN inference based on the [paper](https://arxiv.org/abs/1709.00440)<br/>
 -RNN and LSTM based password guessing for inference <br/>
