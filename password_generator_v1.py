@@ -1,21 +1,10 @@
 import numpy as np
-# import random as rm
+
 import re,sys
 
-data=[]
-path='rockyou.txt'
-data_size=10000
-with open(path) as fin:
-    fin.seek(0)
-    l=0
-    while fin:    
-        temp= fin.readline()
-        data.append(temp)
-        l+=len(data[-1])
-        fin.seek(l)
-        if len(data)>=data_size:
-            break
-
+# sample passwords
+text='123456\n12345\n123456789\npassword\niloveyou\nprincess\n1234567\nrockyou\n12345678\nabc123\nnicole\ndaniel\nbabygirl\nmonkey\nlovely\njessica\n654321\nmichael\nashley\nqwerty\n111111\niloveu\n000000\nmichelle\ntigger\nsunshine\nchocolate\npassword1\nsoccer\nanthony\nfriends\nbutterfly\npurple\nangel\njordan\nliverpool\njustin\nloveme\nfuckyou\n123123\nfootball\nsecret\nandrea\ncarlos\njennifer\njoshua\nbubbles\n1234567890\nsuperman\nhannah\namanda\nloveyou\npretty\nbasketball\nandrew\nangels\ntweety\nflower\nplayboy\nhello\nelizabeth\nhottie\ntinkerbell\ncharlie\nsamantha\nbarbie\nchelsea\nlovers\nteamo\njasmine\nbrandon\n666666\nshadow\nmelissa\neminem\nmatthew\nrobert\ndanielle\nforever\nfamily\njonathan\n987654321\ncomputer\nwhatever\ndragon\nvanessa\ncookie\nnaruto\nsummer\nsweety\nspongebob\njoseph\njunior\nsoftball\ntaylor\nyellow\ndaniela\nlauren\nmickey\nprincesa\nalexandra\nalexis\njesus\nestrella\nmiguel\nwilliam\nthomas\nbeautiful\nmylove\nangela\npoohbear\npatrick\niloveme\nsakura\nadrian\nalexander\ndestiny\nchristian\n121212\nsayang\namerica\ndancer\nmonica\nrichard\n112233\nprincess1\n555555\ndi'
+data=text.split()
 
 bigrammer = lambda word: re.findall("(?=(..))", word) 
 
@@ -46,7 +35,7 @@ for i in range(len(all_chars)):
             main_matrix[i][j]=0
 
 for i in main_matrix:
-    i+=.000001 # to make sure there is not zer sum
+    i+=.000001 # to make sure there is not zero sum
     i/=i.sum()
 
 def generator(ch):
@@ -69,6 +58,7 @@ def password(first='p',length=8):
         pwd+=first
         i+=1
     return pwd
+
 def generate_n(number_of_passwords,length=8):
     return [password(Chars[np.random.randint(len(Chars))],length) for i in range(number_of_passwords)]
 
