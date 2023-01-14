@@ -15,7 +15,7 @@ To run the first file:<br/>
 This is a better version that is an extention of the first one. It is based on 4-gram. <br/>
 Some parts of the codes here are adapted from ...  
 
-### To train from scratch
+
 -Download the Rockyou.txt dataset [here](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt)   
 -Adjust the path of Rockyou.txt file in the train file Train_n_gram_password.ipynb
 
@@ -23,5 +23,9 @@ Some parts of the codes here are adapted from ...
 -Run 'pip3 install requirments.txt' (it just contains numpy in case you dont have it)  <br/>
 -Run the command 'python3 password_generator_v1.py m n' ( n passwords of length m  )  
 
-
+### To be posted soon
+<br/><br/>
+-Training your own dataset for all methods <br/>
+-PASSGAN inference based on the [paper](https://arxiv.org/abs/1709.00440)<br/>
+-GPT based password guessing for inference <br/>
 
