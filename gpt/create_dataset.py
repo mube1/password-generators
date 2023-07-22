@@ -5,6 +5,7 @@ from transformers import GPT2Tokenizer
 
 
 tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+path_to_folders='SecLists-master'
 
 def get_dataset(target_path='dataset.pt'):
     list_of_datasets = []
