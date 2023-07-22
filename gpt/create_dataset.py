@@ -20,11 +20,11 @@ def get_dataset(target_path='dataset.pt'):
             except:
                 continue
 
-    multiple_json_dataset = data.ConcatDataset(list_of_datasets)
-    print('total txt files included : ', total_files)
-    
-    
-    torch.save(multiple_json_dataset, target_path)
+    if total_files >1:
+        multiple_json_dataset = data.ConcatDataset(list_of_datasets)
+        torch.save(multiple_json_dataset, target_path)
+    else:
+        print('total txt files included : ', total_files)
     return target_path
 def main():
     path_to_data=get_dataset()
