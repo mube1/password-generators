@@ -15,7 +15,7 @@ tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
 
 path_to_folders='SecLists-master'
 model_name_to_save='gpt_passoword_model'
-
+path_to_dataset='dataset.pt'
 
 # tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
 model = GPT2LMHeadModel.from_pretrained('gpt2')
@@ -82,21 +82,7 @@ def train( dataset, model, tokenizer,  batch_size=16, epochs=5, lr=2e-5,
     return model
 
 
-def get_dataset():
-
-    list_of_datasets = []
-
-    for subdir, dirs, files in os.walk(path_to_folders):
-        for file in files:
-            path=os.path.join(subdir, file)
-            if path.endswith('.txt'):
-                list_of_datasets.append(TextDataset(tokenizer=tokenizer,file_path=path, block_size=128))
-
-    multiple_json_dataset = data.ConcatDataset(list_of_datasets)
-
-    return multiple_json_dataset
-
-dataset=get_dataset()
+dataset=torch.load(path_to_dataset)
 train_dataloader = DataLoader(dataset, batch_size=1, shuffle=True)
 
 model = train(train_dataloader, model, tokenizer)
