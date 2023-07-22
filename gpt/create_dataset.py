@@ -2,7 +2,7 @@ import torch
 import os
 from transformers import TextDataset
 from transformers import GPT2Tokenizer
-
+import torch.utils.data as data
 
 tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
 path_to_folders='SecLists-master'
