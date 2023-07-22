@@ -26,3 +26,9 @@ def get_dataset(target_path='dataset.pt'):
     
     torch.save(multiple_json_dataset, target_path)
     return target_path
+def main():
+    path_to_data=get_dataset()
+    print(path_to_data)
+    
+if __name__ == "__main__":
+    main()
